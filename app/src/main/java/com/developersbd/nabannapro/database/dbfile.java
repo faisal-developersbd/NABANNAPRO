@@ -7110,12 +7110,12 @@ try{
         return res;
     }
 
-    public Cursor geAllCrops()
+    public Cursor geAllCrops(int id)
     {
 
         SQLiteDatabase db=this.getReadableDatabase();
 
-        Cursor res=db.rawQuery("SELECT * FROM "+TABLE_CROPS,null);
+        Cursor res=db.rawQuery("SELECT * FROM "+TABLE_CROPS+" WHERE "+COLUMN_CROPS_REF_COLUMN_CAT_1_2+" ="+id,null);
 
         return res;
     }
@@ -7144,6 +7144,78 @@ try{
     {
         SQLiteDatabase db=this.getWritableDatabase();
         Cursor res=db.rawQuery("SELECT "+parameter+" FROM "+tbl_name+" WHERE "+col+"="+value,null);
+        return res;
+    }
+    public Cursor getSt(String nutrition,int soilId)
+    {
+        Cursor res=null;
+        SQLiteDatabase db=this.getReadableDatabase();
+        if(nutrition.equals("ni"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_REF_NUTRION_STATUS_2_3+","+COLUMN_LIMITS_4+","+COLUMN_LIMITS_5+" FROM "+TABLE_LIMITS+" WHERE "+COLUMN_LAND_1+"="+soilId+" ORDER BY "+COLUMN_LIMITS_5,null);
+
+        }
+        else  if(nutrition.equals("ph"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_REF_NUTRION_STATUS_2_3+","+COLUMN_LIMITS_6+","+COLUMN_LIMITS_7+" FROM "+TABLE_LIMITS+" WHERE "+COLUMN_LAND_1+"="+soilId+" ORDER BY "+COLUMN_LIMITS_7,null);
+
+        }
+        else  if(nutrition.equals("ka"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_REF_NUTRION_STATUS_2_3+","+COLUMN_LIMITS_8+","+COLUMN_LIMITS_9+" FROM "+TABLE_LIMITS+" WHERE "+COLUMN_LAND_1+"="+soilId+" ORDER BY "+COLUMN_LIMITS_9,null);
+
+        }
+        else  if(nutrition.equals("sa"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_REF_NUTRION_STATUS_2_3+","+COLUMN_LIMITS_10+","+COLUMN_LIMITS_11+" FROM "+TABLE_LIMITS+" WHERE "+COLUMN_LAND_1+"="+soilId+" ORDER BY "+COLUMN_LIMITS_11+" DESC",null);
+
+        }
+        else  if(nutrition.equals("zn"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_REF_NUTRION_STATUS_2_3+","+COLUMN_LIMITS_12+","+COLUMN_LIMITS_13+" FROM "+TABLE_LIMITS+" WHERE "+COLUMN_LAND_1+"="+soilId+" ORDER BY "+COLUMN_LIMITS_13+" DESC",null);
+
+        }
+        else  if(nutrition.equals("bo"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_REF_NUTRION_STATUS_2_3+","+COLUMN_LIMITS_14+","+COLUMN_LIMITS_15+" FROM "+TABLE_LIMITS+" WHERE "+COLUMN_LAND_1+"="+soilId+" ORDER BY "+COLUMN_LIMITS_15+" DESC",null);
+
+        }
+
+        return res;
+    }
+    public Cursor getUfCi(String nutrition,int cropId,String sai) {
+        Cursor res = null;
+        SQLiteDatabase db = this.getReadableDatabase();
+        if (nutrition.equals("ni"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_SAI_4+" , "+COLUMN_SAI_5+" FROM "+TABLE_SAI+" WHERE "+COLUMN_SAI_REF_COLUMN_CROPS_1_2+"="+cropId+" and "+COLUMN_SAI_REF_NUTRION_STATUS_2_3+" = \""+sai+"\"",null);
+            Log.d("checkValue","query for ni column 4 and 5 and nutrition = "+nutrition);
+         }
+         else  if (nutrition.equals("ph"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_SAI_6+" , "+COLUMN_SAI_7+" FROM "+TABLE_SAI+" WHERE "+COLUMN_SAI_REF_COLUMN_CROPS_1_2+"="+cropId+" and "+COLUMN_SAI_REF_NUTRION_STATUS_2_3+" = \""+sai+"\"",null);
+            Log.d("checkValue","query for ph column 6 and 7 nutrition = "+nutrition);
+        }
+        else  if (nutrition.equals("ka"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_SAI_8+" , "+COLUMN_SAI_9+" FROM "+TABLE_SAI+" WHERE "+COLUMN_SAI_REF_COLUMN_CROPS_1_2+"="+cropId+" and "+COLUMN_SAI_REF_NUTRION_STATUS_2_3+" = \""+sai+"\"",null);
+
+        }
+        else  if (nutrition.equals("sa"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_SAI_10+" , "+COLUMN_SAI_11+" FROM "+TABLE_SAI+" WHERE "+COLUMN_SAI_REF_COLUMN_CROPS_1_2+"="+cropId+" and "+COLUMN_SAI_REF_NUTRION_STATUS_2_3+" = \""+sai+"\"",null);
+
+        }
+        else  if (nutrition.equals("zn"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_SAI_12+" , "+COLUMN_SAI_13+" FROM "+TABLE_SAI+" WHERE "+COLUMN_SAI_REF_COLUMN_CROPS_1_2+"="+cropId+" and "+COLUMN_SAI_REF_NUTRION_STATUS_2_3+" = \""+sai+"\"",null);
+
+        }
+        else  if (nutrition.equals("bo"))
+        {
+            res=db.rawQuery("SELECT "+COLUMN_SAI_14+" , "+COLUMN_SAI_15+" FROM "+TABLE_SAI+" WHERE "+COLUMN_SAI_REF_COLUMN_CROPS_1_2+"="+cropId+" and "+COLUMN_SAI_REF_NUTRION_STATUS_2_3+" = \""+sai+"\"",null);
+
+        }
         return res;
     }
 
