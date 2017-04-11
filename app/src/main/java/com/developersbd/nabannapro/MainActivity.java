@@ -2,6 +2,7 @@ package com.developersbd.nabannapro;
 
 import android.app.Fragment;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
 import android.os.Bundle;
@@ -51,6 +52,7 @@ public class MainActivity extends AppCompatActivity
             db.init_category();
             db.init_method();
             db.init_landType();
+            db.init_nutritionStatus();
 
             SharedPreferences.Editor editor = sharedpreferences.edit();
             editor.putString(DATA,"initiated");
@@ -60,28 +62,7 @@ public class MainActivity extends AppCompatActivity
         {
             Log.d("dbfile","Database Initiated !!");
 
-            try {
-               Cursor cursor = db.getAllData();
-                if(cursor.getCount()==0)
-                {
-                    Toast.makeText(getBaseContext(),"No data",Toast.LENGTH_LONG).show();
-                }
-                else
-                {
-                    StringBuffer stringBuffer=new StringBuffer();
-                    while (cursor.moveToNext())
-                    {
-                        stringBuffer.append("Id: "+cursor.getString(0));
 
-                    }
-                    Log.d("dbfile","Data: "+stringBuffer.toString());
-                }
-
-
-            }catch (Exception e)
-            {
-                Log.d("dbfile","error: "+e);
-            }
 
         }
 
@@ -107,6 +88,9 @@ public class MainActivity extends AppCompatActivity
 //        FragmentManager fragmentManager=getFragmentManager();
 //        fragmentManager.beginTransaction().replace(R.id.content_main,
 //                new FirstFragement()).commit();
+        Intent intent=new Intent(MainActivity.this,FirstClass.class);
+        startActivity(intent);
+
     }
 
     @Override

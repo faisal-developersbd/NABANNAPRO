@@ -108,7 +108,7 @@ public class dbfile extends SQLiteOpenHelper {
         String CREATE_CROPS_TABLE = "CREATE TABLE " + TABLE_CROPS + " ("
                 + COLUMN_CROPS_1+ " INTEGER PRIMARY KEY,"
                 + COLUMN_CROPS_REF_COLUMN_CAT_1_2 + " TEXT,"
-                + COLUMN_CROPS_3 + " TEXT)";
+                + COLUMN_CROPS_3 + " TEXT"+")";
 //
 //        String CREATE_CROPS_TABLE = "CREATE TABLE " + TABLE_CROPS + " ("
 //                + COLUMN_CROPS_1+ " INTEGER PRIMARY KEY,"
@@ -177,6 +177,32 @@ try{
         // Creating tables again
         onCreate(db);
     }
+    public void init_nutritionStatus()
+    {
+        SQLiteDatabase db=this.getWritableDatabase();
+        ContentValues values=new ContentValues();
+
+        values.put(COLUMN_NUTRITION_STATUS_1,"1");
+        values.put(COLUMN_NUTRITION_STATUS_2,"vl");
+        db.insert(TABLE_NUTRITION_STATUS,null,values);
+
+
+        values.put(COLUMN_NUTRITION_STATUS_1,"2");
+        values.put(COLUMN_NUTRITION_STATUS_2,"l");
+        db.insert(TABLE_NUTRITION_STATUS,null,values);
+
+
+        values.put(COLUMN_NUTRITION_STATUS_1,"3");
+        values.put(COLUMN_NUTRITION_STATUS_2,"m");
+        db.insert(TABLE_NUTRITION_STATUS,null,values);
+
+
+        values.put(COLUMN_NUTRITION_STATUS_1,"4");
+        values.put(COLUMN_NUTRITION_STATUS_2,"o");
+        db.insert(TABLE_NUTRITION_STATUS,null,values);
+
+        Log.d("dbfile","nutrition element initiated");
+    }
     public void init_landType()
     {
         SQLiteDatabase db=this.getWritableDatabase();
@@ -202,6 +228,7 @@ try{
         db.insert(TABLE_LANDTYPE, null, values);
 
         Log.d("dbfile","land type data initiated");
+        db.close();
     }
     public void init_method()
     {
@@ -456,296 +483,297 @@ try{
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues values=new ContentValues();
 
-        values.put(COLUMN_METHODS_1,"1");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"1");
-        values.put(COLUMN_METHODS_3,"পাট (তোষা পাট-২(ও-৯৮৯৭),বিজেআরআই তোষা পাট-৩(ওএম-১)");
+        values.put(COLUMN_CROPS_1,"1");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"1");
+        values.put(COLUMN_CROPS_3,"পাট (তোষা পাট-২(ও-৯৮৯৭),বিজেআরআই তোষা পাট-৩(ওএম-১)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"2");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"1");
-        values.put(COLUMN_METHODS_3,"মেস্তা");
+        values.put(COLUMN_CROPS_1,"2");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"1");
+        values.put(COLUMN_CROPS_3,"মেস্তা");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"3");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"1");
-        values.put(COLUMN_METHODS_3,"কার্পাস");
+        values.put(COLUMN_CROPS_1,"3");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"1");
+        values.put(COLUMN_CROPS_3,"কার্পাস");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"4");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"3");
-        values.put(COLUMN_METHODS_3,"মসুর (বারি মসুর-১, ২, ৩, ৪)");
+        values.put(COLUMN_CROPS_1,"4");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"3");
+        values.put(COLUMN_CROPS_3,"মসুর (বারি মসুর-১, ২, ৩, ৪)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"5");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"3");
-        values.put(COLUMN_METHODS_3,"ছোলা (বারি সোলা-২, ৩, ৪, ৫, ৬ এবং বিনা সোলা-২)");
+        values.put(COLUMN_CROPS_1,"5");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"3");
+        values.put(COLUMN_CROPS_3,"ছোলা (বারি সোলা-২, ৩, ৪, ৫, ৬ এবং বিনা সোলা-২)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"6");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"3");
-        values.put(COLUMN_METHODS_3,"মুগ (বারি মুগ-২, ৩, ৪, ৫ বিনা মুগ-৪, ৫ এবং বাউ মুগ");
+        values.put(COLUMN_CROPS_1,"6");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"3");
+        values.put(COLUMN_CROPS_3,"মুগ (বারি মুগ-২, ৩, ৪, ৫ বিনা মুগ-৪, ৫ এবং বাউ মুগ");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"9");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"4");
-        values.put(COLUMN_METHODS_3,"সরিষা (দৌলত, বারি সরিষা ৭, ৮, ১০, ১১, ১৩, রাই-৫");
+        values.put(COLUMN_CROPS_1,"9");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"4");
+        values.put(COLUMN_CROPS_3,"সরিষা (দৌলত, বারি সরিষা ৭, ৮, ১০, ১১, ১৩, রাই-৫");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"10");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"4");
-        values.put(COLUMN_METHODS_3,"তিল (বারি তিল-১, ২, ৩ এবং বিনা তিল-১)");
+        values.put(COLUMN_CROPS_1,"10");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"4");
+        values.put(COLUMN_CROPS_3,"তিল (বারি তিল-১, ২, ৩ এবং বিনা তিল-১)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"11");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"4");
-        values.put(COLUMN_METHODS_3,"চীনাবাদাম(বারি চীনাবাদাম-৫, ৬ বিনা চীনাবাদাম-১, ২ ও ৩)");
+        values.put(COLUMN_CROPS_1,"11");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"4");
+        values.put(COLUMN_CROPS_3,"চীনাবাদাম(বারি চীনাবাদাম-৫, ৬ বিনা চীনাবাদাম-১, ২ ও ৩)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"12");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"4");
-        values.put(COLUMN_METHODS_3,"সয়াবিন");
+        values.put(COLUMN_CROPS_1,"12");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"4");
+        values.put(COLUMN_CROPS_3,"সয়াবিন");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"13");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"4");
-        values.put(COLUMN_METHODS_3,"সূর্যমুখী (কিরনী (ডিএস-১))");
+        values.put(COLUMN_CROPS_1,"13");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"4");
+        values.put(COLUMN_CROPS_3,"সূর্যমুখী (কিরনী (ডিএস-১))");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"14");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"4");
-        values.put(COLUMN_METHODS_3,"তিসি");
+        values.put(COLUMN_CROPS_1,"14");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"4");
+        values.put(COLUMN_CROPS_3,"তিসি");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"15");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"4");
-        values.put(COLUMN_METHODS_3,"নাইজারনদী");
+        values.put(COLUMN_CROPS_1,"15");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"4");
+        values.put(COLUMN_CROPS_3,"নাইজারনদী");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"16");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"বাঁধাকপি(বারি বাঁধাকপি-১-প্রভাতি, বারি বাঁধাকপি-২-");
+        values.put(COLUMN_CROPS_1,"16");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"বাঁধাকপি(বারি বাঁধাকপি-১-প্রভাতি, বারি বাঁধাকপি-২-");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"17");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"ফুলকপি (বারি ফুলকপি-১(রুপা) ও অন্যান্য জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"17");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"ফুলকপি (বারি ফুলকপি-১(রুপা) ও অন্যান্য জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"18");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"গাজর (সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"18");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"গাজর (সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"19");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"ব্রোকলি");
+        values.put(COLUMN_CROPS_1,"19");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"ব্রোকলি");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"20");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"টমেটো (মানিক, রতন, বারি টমেটো-৩, ৪, ৫, ৬, ৭, ৮, ৯,");
+        values.put(COLUMN_CROPS_1,"20");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"টমেটো (মানিক, রতন, বারি টমেটো-৩, ৪, ৫, ৬, ৭, ৮, ৯,");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"21");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"বেগুন (উত্তরা, তারাপুরী, কাজলা ও বারি বেগুন-৫(নয়নত");
+        values.put(COLUMN_CROPS_1,"21");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"বেগুন (উত্তরা, তারাপুরী, কাজলা ও বারি বেগুন-৫(নয়নত");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"22");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"ঢেঁড়স (বারি ঢেঁড়স-১ ও অন্যান্য জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"22");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"ঢেঁড়স (বারি ঢেঁড়স-১ ও অন্যান্য জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"23");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"মুলা (বারি মুলা-১(তাসাকিসান মুলা), বারি মুলা-২(পিং");
+        values.put(COLUMN_CROPS_1,"23");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"মুলা (বারি মুলা-১(তাসাকিসান মুলা), বারি মুলা-২(পিং");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"24");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"2");
-        values.put(COLUMN_METHODS_3,"ইক্ষু/আখ (সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"24");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"2");
+        values.put(COLUMN_CROPS_3,"ইক্ষু/আখ (সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"25");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"3");
-        values.put(COLUMN_METHODS_3,"মটরশুটি (বারি মটরশুটি-১, ২, ৩ এবং ইপ্সা মটরশুটি-১,");
+        values.put(COLUMN_CROPS_1,"25");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"3");
+        values.put(COLUMN_CROPS_3,"মটরশুটি (বারি মটরশুটি-১, ২, ৩ এবং ইপ্সা মটরশুটি-১,");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"26");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"3");
-        values.put(COLUMN_METHODS_3,"মাসকলাই (বারি মাষ-১, ২, ৩ এবং বিনা মাষ-১)");
+        values.put(COLUMN_CROPS_1,"26");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"3");
+        values.put(COLUMN_CROPS_3,"মাসকলাই (বারি মাষ-১, ২, ৩ এবং বিনা মাষ-১)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"28");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"আলু (হীরা, আইলসা, ডায়মন্ট, কার্ডিনাল, বারি আলু-১১,");
+        values.put(COLUMN_CROPS_1,"28");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"আলু (হীরা, আইলসা, ডায়মন্ট, কার্ডিনাল, বারি আলু-১১,");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"29");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"সীম (সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"29");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"সীম (সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"30");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"বরবটি (সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"30");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"বরবটি (সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"31");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"মিষ্টিকুমড়া (সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"31");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"মিষ্টিকুমড়া (সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"32");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"8");
-        values.put(COLUMN_METHODS_3,"লাউ (বারি লাউ-১ এবং অন্যান্য সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"32");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"8");
+        values.put(COLUMN_CROPS_3,"লাউ (বারি লাউ-১ এবং অন্যান্য সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"43");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"কলা (বারি কলা-১, ২ ও অন্যান্য জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"43");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"কলা (বারি কলা-১, ২ ও অন্যান্য জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"44");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"আম(বারি-১,২,৩, বারি-৪ (হাইব্রিড), বারি-৫,৬,৭,৮,৯ এ");
+        values.put(COLUMN_CROPS_1,"44");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"আম(বারি-১,২,৩, বারি-৪ (হাইব্রিড), বারি-৫,৬,৭,৮,৯ এ");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"46");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"কাঁঠাল (বারি-১,২,বাউ-১ এবং অন্যান্য)");
+        values.put(COLUMN_CROPS_1,"46");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"কাঁঠাল (বারি-১,২,বাউ-১ এবং অন্যান্য)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"47");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"পেয়ারা (কাজী,বারি-২,৩,৫,৭,বাউ-৮,৯ এবং অন্যান্য)");
+        values.put(COLUMN_CROPS_1,"47");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"পেয়ারা (কাজী,বারি-২,৩,৫,৭,বাউ-৮,৯ এবং অন্যান্য)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"48");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"লিচু (বারি-১,২,৩,৪, বাউ-২,৩,৪ এবং অন্যান্য)");
+        values.put(COLUMN_CROPS_1,"48");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"লিচু (বারি-১,২,৩,৪, বাউ-২,৩,৪ এবং অন্যান্য)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"49");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"নারিকেল (বারি-১,২ এবং অন্যান্য)");
+        values.put(COLUMN_CROPS_1,"49");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"নারিকেল (বারি-১,২ এবং অন্যান্য)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"51");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"কমলা (বারি-১ এবং অন্যান্য)");
+        values.put(COLUMN_CROPS_1,"51");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"কমলা (বারি-১ এবং অন্যান্য)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"52");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"মাল্টা (বারি-১,বাউ-১)");
+        values.put(COLUMN_CROPS_1,"52");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"মাল্টা (বারি-১,বাউ-১)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"54");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"সাতকরা (বারি-১ এবং অন্যান্য)");
+        values.put(COLUMN_CROPS_1,"54");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"সাতকরা (বারি-১ এবং অন্যান্য)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"56");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"কুল (বাউ-১,২,৩ এবং অন্যান্য)");
+        values.put(COLUMN_CROPS_1,"56");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"কুল (বাউ-১,২,৩ এবং অন্যান্য)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"58");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"দেশি আমড়া (বারি-২ এবং অন্যান্য)");
+        values.put(COLUMN_CROPS_1,"58");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"দেশি আমড়া (বারি-২ এবং অন্যান্য)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"59");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"5");
-        values.put(COLUMN_METHODS_3,"পেঁয়াজ (সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"59");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"5");
+        values.put(COLUMN_CROPS_3,"পেঁয়াজ (সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"60");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"6");
-        values.put(COLUMN_METHODS_3,"রসুন (সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"60");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"6");
+        values.put(COLUMN_CROPS_3,"রসুন (সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"61");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"6");
-        values.put(COLUMN_METHODS_3,"মরিচ(বারি মরিচ-১ ও অন্যান্য সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"61");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"6");
+        values.put(COLUMN_CROPS_3,"মরিচ(বারি মরিচ-১ ও অন্যান্য সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"62");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"6");
-        values.put(COLUMN_METHODS_3,"হলুদ (ডিমলা, সিন্দুরী ও বারি হলুদ-৩)");
+        values.put(COLUMN_CROPS_1,"62");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"6");
+        values.put(COLUMN_CROPS_3,"হলুদ (ডিমলা, সিন্দুরী ও বারি হলুদ-৩)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"63");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"6");
-        values.put(COLUMN_METHODS_3,"আদা (সকল জাত সমূহ)");
+        values.put(COLUMN_CROPS_1,"63");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"6");
+        values.put(COLUMN_CROPS_3,"আদা (সকল জাত সমূহ)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"64");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"গম (সেচসহ) (কাঞ্চন, গৌরব, প্রতিভা, সৌরভ, অগ্রনী এব");
+        values.put(COLUMN_CROPS_1,"64");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"গম (সেচসহ) (কাঞ্চন, গৌরব, প্রতিভা, সৌরভ, অগ্রনী এব");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"65");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"গম (বৃষ্টি নির্ভর) (কাঞ্চন, আকবর, গৌরব, প্রতিভা, স");
+        values.put(COLUMN_CROPS_1,"65");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"গম (বৃষ্টি নির্ভর) (কাঞ্চন, আকবর, গৌরব, প্রতিভা, স");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"66");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"ভুট্টা (হাইব্রিড)");
+        values.put(COLUMN_CROPS_1,"66");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"ভুট্টা (হাইব্রিড)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"69");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"রোপা আউশ (বিআর-৬, ২০, ২১ এবং ২৪)");
+        values.put(COLUMN_CROPS_1,"69");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"রোপা আউশ (বিআর-৬, ২০, ২১ এবং ২৪)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"70");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"রোপা আউশ (বিআর-১, ২, ৩, ৭, ৮, ৯, ১৪, ১৬, ২৬ এবং ব্");
+        values.put(COLUMN_CROPS_1,"70");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"রোপা আউশ (বিআর-১, ২, ৩, ৭, ৮, ৯, ১৪, ১৬, ২৬ এবং ব্");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"71");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"আউশ (স্থানীয় উন্নত জাত)");
+        values.put(COLUMN_CROPS_1,"71");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"আউশ (স্থানীয় উন্নত জাত)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"72");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"রোপা আমন (বি আর-৪, ১০, ১১, ২২, ২৩, ব্রিধান-৩০, ৩১,");
+        values.put(COLUMN_CROPS_1,"72");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"রোপা আমন (বি আর-৪, ১০, ১১, ২২, ২৩, ব্রিধান-৩০, ৩১,");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"73");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"রোপা আমন (বি আর-২৫, ব্রিধান-৩৩, ব্রিধান-৩৯ এবং বিন");
+        values.put(COLUMN_CROPS_1,"73");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"রোপা আমন (বি আর-২৫, ব্রিধান-৩৩, ব্রিধান-৩৯ এবং বিন");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"74");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"রোপা আমন (বি আর-৫, ব্রিধান-৩৪, ৩৭ এবং ৩৮)");
+        values.put(COLUMN_CROPS_1,"74");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"রোপা আমন (বি আর-৫, ব্রিধান-৩৪, ৩৭ এবং ৩৮)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"75");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"রোপা আমন (স্থানীয় উন্নত জাত)");
+        values.put(COLUMN_CROPS_1,"75");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"রোপা আমন (স্থানীয় উন্নত জাত)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"76");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"বোরো (ব্রিধান-২৯, বিনাধান-৬ এবং হাইব্রিড)");
+        values.put(COLUMN_CROPS_1,"76");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"বোরো (ব্রিধান-২৯, বিনাধান-৬ এবং হাইব্রিড)");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"77");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"বোরো (বিআর-৩, ৮, ৯, ১৪, ১৬, ১৭, ১৮, ১৯ এবং বিনাধান");
+        values.put(COLUMN_CROPS_1,"77");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"বোরো (বিআর-৩, ৮, ৯, ১৪, ১৬, ১৭, ১৮, ১৯ এবং বিনাধান");
         db.insert(TABLE_CROPS, null, values);
 
-        values.put(COLUMN_METHODS_1,"79");
-        values.put(COLUMN_METHODS_REF_CROP_ID_2,"7");
-        values.put(COLUMN_METHODS_3,"বোরো (স্থানীয় উন্নত জাত)");
+        values.put(COLUMN_CROPS_1,"79");
+        values.put(COLUMN_CROPS_REF_COLUMN_CAT_1_2,"7");
+        values.put(COLUMN_CROPS_3,"বোরো (স্থানীয় উন্নত জাত)");
         db.insert(TABLE_CROPS, null, values);
         Log.d("dbfile","crops data initiated");
+        db.close();
 
 
 
@@ -7072,13 +7100,42 @@ try{
         return res;
     }
 
-    public Cursor getAllData()
+    public Cursor getCategory()
     {
-        Log.d("dbfile","attempt to query");
+
         SQLiteDatabase db=this.getReadableDatabase();
-        Log.d("dbfile","attempt to query");
+
         Cursor res=db.rawQuery("SELECT * FROM tbl_cat",null);
-        Log.d("dbfile","query successfull");
+
+        return res;
+    }
+
+    public Cursor geAllCrops()
+    {
+
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        Cursor res=db.rawQuery("SELECT * FROM "+TABLE_CROPS,null);
+
+        return res;
+    }
+
+    public Cursor getAllNutritionStatus()
+    {
+
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        Cursor res=db.rawQuery("SELECT * FROM "+TABLE_NUTRITION_STATUS,null);
+
+        return res;
+    }
+    public Cursor getAllSoilType()
+    {
+
+        SQLiteDatabase db=this.getReadableDatabase();
+
+        Cursor res=db.rawQuery("SELECT * FROM "+TABLE_LANDTYPE,null);
+
         return res;
     }
 
