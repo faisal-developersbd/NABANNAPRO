@@ -20,6 +20,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.app.FragmentManager;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.developersbd.nabannapro.database.dbfile;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
@@ -84,12 +86,15 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
+//        NavigationView bottomView = (NavigationView) findViewById(R.id.nav_bottom);
+//        bottomView.setNavigationItemSelectedListener(this);
 
-//        FragmentManager fragmentManager=getFragmentManager();
-//        fragmentManager.beginTransaction().replace(R.id.content_main,
-//                new FirstFragement()).commit();
-        Intent intent=new Intent(MainActivity.this,FirstClass.class);
-        startActivity(intent);
+
+        FragmentManager fragmentManager=getFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.content_main,
+                new FirstFragement()).commit();
+//        Intent intent=new Intent(MainActivity.this,FirstClass.class);
+//        startActivity(intent);
 
     }
 
