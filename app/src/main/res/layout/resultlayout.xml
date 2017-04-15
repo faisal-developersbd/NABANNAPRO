@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="20dp">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:alpha="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="300dp"
+
+
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tblHeader"
+                android:layout_width="match_parent"
+                android:layout_height="210dp"
+                android:background="@drawable/tblup"
+                android:text="@string/tbl_header"
+                android:paddingTop="15dp"
+                android:layout_weight="4"
+                android:textAlignment="center"
+                android:textColor="@android:color/black"
+                android:textSize="20dp" />
+
+
+            <TableLayout
+
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/table"
+                android:layout_weight="3"
+                android:padding="15dp"
+                android:stretchColumns="1">
+
+                <TableRow>
+
+
+                    <TextView
+                        android:id="@+id/nutName"
+                        android:background="@drawable/border"
+                        android:padding="3dip"
+                        android:text="@string/fername"
+                        android:minHeight="50dp"
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp" />
+
+                    <TextView
+                        android:id="@+id/nutQuantity"
+                        android:minHeight="50dp"
+                        android:gravity="right"
+                        android:padding="3dip"
+                        android:text="@string/ferquantity"
+                        android:background="@drawable/border"
+                        android:textColor="@android:color/black"
+                        android:textSize="16dp" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:id="@+id/currentNut"
+                        android:background="@drawable/border"
+                        android:padding="3dip"
+                        android:minHeight="60dp"
+                        android:text="UREA"
+                        android:textColor="@android:color/black"
+                        android:textSize="14dp" />
+
+                    <TextView
+                        android:id="@+id/currentQuantity"
+                        android:background="@drawable/border"
+                        android:minHeight="60dp"
+                        android:gravity="right"
+                        android:padding="3dip"
+                        android:text="TEXT"
+                        android:textColor="@android:color/black"
+                        android:textSize="14dp" />
+                </TableRow>
+
+
+            </TableLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_weight="4"
+                android:background="@drawable/tbldown"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/methodBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="6"
+                    android:background="@drawable/button" />
+
+                <TextView
+                    android:id="@+id/methodText"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:paddingLeft="10dp"
+                    android:text="@string/tbl_footer"
+                    android:textColor="@android:color/black"
+                    android:textSize="16dp" />
+            </LinearLayout>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>
