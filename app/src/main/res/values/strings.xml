@@ -11,4 +11,49 @@
         <item>sun</item>
         <item>mon</item>
     </string-array>
+    <string name="category">বিভাগ</string>
+    <string name="crops">শস্য</string>
+    <string name="land_quantity">জমির পরিমান</string>
+    <string name="land_type">ভূৃমি শ্রেণী</string>
+    <string name="ni">নাইট্রোজেন</string>
+    <string name="ph">ফসফরাস</string>
+    <string name="ka">পটাসিয়াম</string>
+    <string name="sa">সালফার</string>
+    <string name="zn">দস্তা</string>
+    <string name="bo">বোরন</string>
+    <string name="urea">ইউরিয়া</string>
+    <string name="tsp">ি.এস.পি</string>
+    <string name="mop">এম.ও.পি</string>
+    <string name="gypsum">জিপসাম</string>
+    <string name="zinksulphate">জিঙ্ক সালফেট</string>
+    <string name="boricacid">বরিক এসিড</string>
+    <string name="present_situation">বর্তমান অবস্থা</string>
+    <string name="tbl_header"> পুষ্টি উপাদান</string>
+    <string name="tbl_footer">সার প্রয়োগ পদ্ধতি</string>
+    <string-array name="fertilizer">
+        <item>ইউরিয়া</item>
+        <item>টি.এস.পি</item>
+        <item>এম.ও.পি</item>
+        <item>জিপসাম</item>
+        <item>জিঙ্ক সালফেট</item>
+        <item>বরিক এসিড</item>
+    </string-array>
+    <string-array name="number">
+        <item>০</item>
+        <item>১</item>
+        <item>২</item>
+        <item>৩</item>
+        <item>৪</item>
+        <item>৫</item>
+        <item>৬</item>
+        <item>৭</item>
+        <item>৮</item>
+        <item>৯</item>
+
+    </string-array>
+    <string name="select">নির্বাচন করুণ</string>
+    <string name="unit">কেজি/হেক্টর</string>
+
+    <string name="fername">সারের নাম</string>
+    <string name="ferquantity">সারের পরিমাণ</string>
 </resources>

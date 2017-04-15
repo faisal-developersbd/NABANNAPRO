@@ -25,13 +25,18 @@ import android.widget.Toast;
 
 import com.developersbd.nabannapro.database.dbfile;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    public static final String MyPREFERENCES = "MyPrefs" ;
-    public static final String DATA = "data";
-    dbfile db;
 
-    SharedPreferences sharedpreferences;
+    FirstFragement firstFragement;
+    SecondFragement secondFragement;
+    ThirdFragement thirdFragement;
+    ResultViewClass resultViewFragement;
+
+    int trackFragement=0;
+    ArrayList<listItem> arrayList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,40 +45,44 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        sharedpreferences = getSharedPreferences(MyPREFERENCES, Context.MODE_PRIVATE);
-//        SharedPreferences.Editor editor = sharedpreferences.edit();
-        db = new dbfile(this);
-        String restoredText=sharedpreferences.getString(DATA,"empty");
-        if(restoredText=="empty") {
 
-
-            db.init_limit();
-            db.init_sai();
-            db.init_crops();
-            db.init_category();
-            db.init_method();
-            db.init_landType();
-            db.init_nutritionStatus();
-
-            SharedPreferences.Editor editor = sharedpreferences.edit();
-            editor.putString(DATA,"initiated");
-            editor.commit();
-        }
-        else
-        {
-            Log.d("dbfile","Database Initiated !!");
-
-
-
-        }
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
+//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+//                        .setAction("Action", null).show();
+                FragmentManager fragmentManager=getFragmentManager();
+             if(trackFragement==1)
+             {
+                 firstFragement.load();
+                 try {
+
+                 arrayList = new ArrayList<listItem>();
+                arrayList = firstFragement.getItemList();
+                 resultViewFragement = new ResultViewClass();
+                resultViewFragement.setArrayList(arrayList);
+             }catch (Exception e)
+                 {
+                     Log.d("debugAdapter","MainActivity.java: "+e);
+                 }
+                 fragmentManager.beginTransaction().replace(R.id.content_main,
+                         resultViewFragement).commit();
+                 Log.e("tracfragement", "CurrentFragement:  " + "First Fragment");
+             }
+             else  if(trackFragement==2)
+             {
+                 Log.e("tracfragement", "CurrentFragement:  " + "Second Fragment");
+             }
+             else  if(trackFragement==3)
+             {
+                 Log.e("tracfragement", "CurrentFragement:  " + "Third Fragment");
+             }
+
+
+
             }
         });
 
@@ -86,18 +95,21 @@ public class MainActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-//        NavigationView bottomView = (NavigationView) findViewById(R.id.nav_bottom);
-//        bottomView.setNavigationItemSelectedListener(this);
+
 
 
         FragmentManager fragmentManager=getFragmentManager();
+        firstFragement=new FirstFragement();
         fragmentManager.beginTransaction().replace(R.id.content_main,
-                new FirstFragement()).commit();
-//        Intent intent=new Intent(MainActivity.this,FirstClass.class);
-//        startActivity(intent);
+                firstFragement).commit();
+        trackFragement=1;
+
 
     }
-
+    void sendResultToResultView()
+    {
+        resultViewFragement.setArrayList(arrayList);
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -139,14 +151,20 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.first_frament) {
             // Handle the camera action
+            firstFragement=new FirstFragement();
             fragmentManager.beginTransaction().replace(R.id.content_main,
-                    new FirstFragement()).commit();
+                    firstFragement).commit();
+            trackFragement=1;
         } else if (id == R.id.second_fragement) {
+            secondFragement=new SecondFragement();
             fragmentManager.beginTransaction().replace(R.id.content_main,
-                    new SecondFragement()).commit();
+                     secondFragement).commit();
+            trackFragement=2;
         } else if (id == R.id.third_fragement) {
+            thirdFragement=new ThirdFragement();
             fragmentManager.beginTransaction().replace(R.id.content_main,
-                    new ThirdFragement()).commit();
+                   thirdFragement).commit();
+            trackFragement=3;
         }
         else if (id == R.id.nav_share) {
 

@@ -12,6 +12,7 @@ import android.view.ViewGroup;
  */
 
 public class SecondFragement extends Fragment {
+
     View myview;
     @Nullable
     @Override
