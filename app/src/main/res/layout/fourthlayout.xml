@@ -1,12 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    >
+    android:layout_height="match_parent">
 
-
-
+    <!-- TODO: Update blank fragment layout -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -34,24 +31,25 @@
             android:orientation="horizontal">
 
             <ImageButton
-                android:id="@+id/frBtn4"
+                android:id="@+id/frBtn7"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_menu_manage" />
 
             <ImageButton
-                android:id="@+id/frBtn5"
+                android:id="@+id/frBtn8"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 app:srcCompat="@drawable/ic_menu_send" />
             <ImageButton
-                android:id="@+id/frBtn6"
+                android:id="@+id/frBtn9"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_menu_send" />
+                app:srcCompat="@drawable/ic_menu_share" />
         </LinearLayout>
     </LinearLayout>
+
 </RelativeLayout>
