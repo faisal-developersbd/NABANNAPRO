@@ -9,11 +9,12 @@
         android:layout_height="wrap_content"
 
         android:alpha="1"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:id="@+id/linearLayout">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="300dp"
+            android:layout_height="200dp"
 
 
             android:orientation="vertical">
@@ -21,7 +22,7 @@
             <TextView
                 android:id="@+id/tblHeader"
                 android:layout_width="match_parent"
-                android:layout_height="210dp"
+                android:layout_height="150dp"
                 android:background="@drawable/tblup"
                 android:text="@string/tbl_header"
                 android:paddingTop="15dp"
@@ -90,9 +91,10 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="200dp"
+                android:layout_height="220dp"
                 android:layout_weight="4"
                 android:background="@drawable/tbldown"
+                android:visibility="gone"
                 android:orientation="horizontal">
 
                 <Button
@@ -111,6 +113,7 @@
                     android:text="@string/tbl_footer"
                     android:textColor="@android:color/black"
                     android:textSize="16dp" />
+
             </LinearLayout>
 
         </LinearLayout>

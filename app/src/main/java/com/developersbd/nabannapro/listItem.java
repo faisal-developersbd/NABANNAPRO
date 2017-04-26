@@ -1,5 +1,9 @@
 package com.developersbd.nabannapro;
 
+import android.text.Layout;
+import android.widget.Button;
+import android.widget.TextView;
+
 /**
  * Created by TC on 4/14/2017.
  */
@@ -8,6 +12,9 @@ public class listItem {
     private String tblHeader;
     private String nutElement;
     private String applyingMethod;
+    private Button view;
+    private Layout layoutVisible;
+    private TextView methodView;
 
 
     public listItem(String tblHeader, String nutElement, String applyingMethod) {

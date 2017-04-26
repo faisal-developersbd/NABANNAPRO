@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity
     SecondFragement secondFragement;
     ThirdFragement thirdFragement;
     ResultViewClass resultViewFragement;
-
+    dbfile db;
     int trackFragement=0;
     ArrayList<listItem> arrayList;
 
@@ -46,7 +46,7 @@ public class MainActivity extends AppCompatActivity
         setSupportActionBar(toolbar);
 
 
-
+        db=new dbfile(getBaseContext());
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -62,8 +62,22 @@ public class MainActivity extends AppCompatActivity
 
                  arrayList = new ArrayList<listItem>();
                 arrayList = firstFragement.getItemList();
+                    int cropid= firstFragement.getCropId();
+                   Cursor result=  db.getAppMethod(cropid);
+                     String method="";
+                     if(result.getCount()>0)
+                     {
+                         while (result.moveToNext())
+                         {
+                             method=result.getString(0);
+                             Log.d("dbfile","method: "+method);
+                         }
+
+                     }
                  resultViewFragement = new ResultViewClass();
+                     resultViewFragement.setMethod(method);
                 resultViewFragement.setArrayList(arrayList);
+
              }catch (Exception e)
                  {
                      Log.d("debugAdapter","MainActivity.java: "+e);
@@ -115,7 +129,14 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         if (drawer.isDrawerOpen(GravityCompat.START)) {
             drawer.closeDrawer(GravityCompat.START);
-        } else {
+        } else if(trackFragement==1)
+        {
+            FragmentManager fragmentManager=getFragmentManager();
+            firstFragement=new FirstFragement();
+            fragmentManager.beginTransaction().replace(R.id.content_main,
+                    firstFragement).commit();
+//            trackFragement=1;
+        }else  {
             super.onBackPressed();
         }
     }

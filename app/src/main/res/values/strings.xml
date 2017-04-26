@@ -52,7 +52,7 @@
 
     </string-array>
     <string name="select">নির্বাচন করুণ</string>
-    <string name="unit">কেজি/হেক্টর</string>
+    <string name="unit">কেজি</string>
 
     <string name="fername">সারের নাম</string>
     <string name="ferquantity">সারের পরিমাণ</string>

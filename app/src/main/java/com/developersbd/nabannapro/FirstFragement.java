@@ -7,14 +7,18 @@ import android.database.Cursor;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.design.widget.FloatingActionButton;
+import android.text.Editable;
+import android.text.method.KeyListener;
 import android.util.Log;
 import android.view.InflateException;
+import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -29,16 +33,17 @@ import java.util.zip.Inflater;
  * Created by TC on 3/30/2017.
  */
 
-public class FirstFragement extends Fragment implements View.OnClickListener {
+public class FirstFragement extends Fragment implements View.OnClickListener  {
     View myview;
     Spinner category,crop,soilType;
     dbfile db;
     Cursor cursor;
     Button result;
     FloatingActionButton fab;
-    TextView stn,stp,sts,stb,stzn,stmg,stk;
+    EditText stn,stp,sts,stb,stzn,land_quantity,stk;
     Context context;
     ArrayList<listItem> element;
+
 
 
 
@@ -57,6 +62,8 @@ public class FirstFragement extends Fragment implements View.OnClickListener {
 
     String[] resultset;
     String select="";
+    int n,p,k,s,zn,b;
+    String[] num={"1","2","3","4","5","6","7","8","9","0"};
 
 
 
@@ -72,12 +79,90 @@ public class FirstFragement extends Fragment implements View.OnClickListener {
         crop=(Spinner)myview. findViewById(R.id.spinner2);
         soilType=(Spinner) myview.findViewById(R.id.spinner3);
         result=(Button)myview.findViewById(R.id.btn_reslt);
-        stn=(TextView) myview.findViewById(R.id.inp_stn);
-        stp=(TextView) myview.findViewById(R.id.inp_stp);
-        stb=(TextView) myview.findViewById(R.id.inp_stb);
-        stk=(TextView) myview.findViewById(R.id.inp_stk);
-        sts=(TextView) myview.findViewById(R.id.inp_sts);
-        stzn=(TextView) myview.findViewById(R.id.inp_stzn);
+        stn=(EditText) myview.findViewById(R.id.inp_stn);
+        stp=(EditText) myview.findViewById(R.id.inp_stp);
+        stb=(EditText) myview.findViewById(R.id.inp_stb);
+        stk=(EditText) myview.findViewById(R.id.inp_stk);
+        sts=(EditText) myview.findViewById(R.id.inp_sts);
+        stzn=(EditText) myview.findViewById(R.id.inp_stzn);
+
+        land_quantity=(EditText) myview.findViewById(R.id.inp_land_type);
+        /*final String makeString="";
+        stzn.setOnKeyListener(new View.OnKeyListener() {
+
+            @Override
+            public boolean onKey(View v, int keyCode, KeyEvent event) {
+                switch (event.getAction())
+                {
+                    case KeyEvent.ACTION_UP:
+                        switch (keyCode) {
+                            case KeyEvent.KEYCODE_1:
+                              String s  =stzn.getText().toString();
+                                int len=s.length();
+
+                                if(!s.equals("1"))
+
+                                stzn.setText(makeString);
+
+                                break;
+                            case KeyEvent.KEYCODE_2:
+                                makeString=stzn.getText().toString();
+                                makeString=makeString+num[1];
+                                stzn.setText(makeString);
+                                stzn.setText(s);
+                                break;
+                            case KeyEvent.KEYCODE_3:
+                                makeString=stzn.getText().toString();
+                                makeString=makeString+num[2];
+                                stzn.setText(makeString);
+                                break;
+                            case KeyEvent.KEYCODE_4:
+                                makeString=stzn.getText().toString();
+                                makeString=makeString+num[3];
+                                stzn.setText(makeString);
+                                break;
+                            case KeyEvent.KEYCODE_5:
+                                makeString=stzn.getText().toString();
+                                makeString=makeString+num[4];
+                                stzn.setText(makeString);
+                                break;
+                            case KeyEvent.KEYCODE_6:
+                                makeString=stzn.getText().toString();
+                                makeString=makeString+num[5];
+                                stzn.setText(makeString);
+                                break;
+                            case KeyEvent.KEYCODE_7:
+                                makeString=stzn.getText().toString();
+                                makeString=makeString+num[6];
+                                stzn.setText(makeString);
+                                break;
+                            case KeyEvent.KEYCODE_8:
+                                makeString=stzn.getText().toString();
+                                makeString=makeString+num[7];
+                                stzn.setText(makeString);
+                                break;
+                            case KeyEvent.KEYCODE_9:
+                                makeString=stzn.getText().toString();
+                                makeString=makeString+num[8];
+                                stzn.setText(makeString);
+                                break;
+                            case KeyEvent.KEYCODE_0:
+                                makeString=stzn.getText().toString();
+                                makeString=makeString+num[9];
+                                stzn.setText(makeString);
+                                break;
+                            default: break;
+
+                        }
+                        break;
+                    case KeyEvent.ACTION_DOWN:break;
+                    default:break;
+                }
+
+                return false;
+            }
+        });
+*/
        result.setOnClickListener(this);
         select=getString(R.string.select);
 
@@ -95,10 +180,30 @@ public class FirstFragement extends Fragment implements View.OnClickListener {
 
     }
 
+String convertBangla(String value)
+{
+    Float result=0.0f;
+    String main="";
+    String[] number=getResources().getStringArray(R.array.number);
+    int len=value.length();
+    for(int i=0;i<len;i++)
+    {
+        if(value.charAt(i)!='.')
+        {
+            int index=Integer.parseInt(""+value.charAt(i));
+            main=main+number[index];
+        }
+        else main=main+'.';
+
+
+    }
+    return main;
+}
 
     void load()
     {
-        String vstn=stn.getText().toString();
+        Float area=(Float) Float.parseFloat(land_quantity.getText().toString());
+
         resultset=new String[50];
 
         Float[] st=new Float[10];
@@ -209,9 +314,10 @@ public class FirstFragement extends Fragment implements View.OnClickListener {
                     resn = resn * (100.0f / 17.0f);
                 }
                 Log.d("checkValue", "st: " + st[j]);
-                res = null;
+              // Float area = (Float)Float.parseFloat(rs);
+                resn=resn*area;
                 resultset[j]=""+resn;
-                Log.d("result", "Final Result " + nut[j] + " : " + resn + " kg/ha");
+                Log.d("result", "Final Result " + nut[j] + " : " + resn + " kg");
 
             }
         }
@@ -409,7 +515,8 @@ public class FirstFragement extends Fragment implements View.OnClickListener {
         for (int i=0;i<6;i++)
         {
             int j=i+1;
-            items=new listItem(header+" "+number[j],fertilizer[i],resultset[i]+" "+unit);
+           String value= convertBangla(resultset[i]);
+            items=new listItem(header+" "+number[j],fertilizer[i],value+" "+unit);
             element.add(items);
             Log.d("debugAdapter","FirstFragement.java: nut- "+fertilizer[i]+" result- "+resultset[i]+" method- ");
         }
@@ -422,9 +529,14 @@ public class FirstFragement extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
        if(v.getId()==result.getId())
        {
+
           load();
        }
 
 
+    }
+
+    public int getCropId() {
+        return selectedCrop;
     }
 }
