@@ -7219,7 +7219,7 @@ try{
         return res;
     }
     public Cursor getAppMethod(int cropId) {
-        SQLiteDatabase db=this.getWritableDatabase();
+        SQLiteDatabase db=this.getReadableDatabase();
         Cursor res=db.rawQuery("SELECT "+COLUMN_METHODS_3+" FROM "+TABLE_METHODS+" WHERE "+COLUMN_METHODS_REF_CROP_ID_2+"="+cropId,null);
         return res;
     }

@@ -25,16 +25,52 @@
         </LinearLayout>
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_weight="10"
-            android:visibility="gone"
+            android:layout_height="wrap_content"
+
+            android:padding="20dp"
+
             android:orientation="vertical">
 
-            <Button
-                android:id="@+id/testBtn"
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="+" />
+                android:layout_height="50dp"
+
+
+                android:background="@drawable/tbldown"
+                android:orientation="horizontal">
+            <Button
+                android:id="@+id/actionMethodBtn"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:background="@drawable/button"/>
+            <TextView
+                android:id="@+id/methodText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:paddingLeft="10dp"
+                android:text="@string/tbl_footer"
+                android:textColor="@android:color/black"
+                android:textSize="16dp"  />
+                </LinearLayout>
+            <TextView
+               android:id="@+id/methodView"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:background="@drawable/table"
+                android:textColor="@android:color/black"
+                android:textStyle="bold"
+                android:animateLayoutChanges="true"
+                android:visibility="gone"
+                android:padding="20dp"
+                android:textSize="14dp"
+                android:orientation="horizontal"></TextView>
         </LinearLayout>
+
     </LinearLayout>
+
+
 </RelativeLayout>
