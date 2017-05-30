@@ -23,35 +23,55 @@
                 android:id="@+id/imageView3"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                app:srcCompat="@drawable/imgbackground" />
+                app:srcCompat="@drawable/farner2" />
 
         </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_weight="5"
+            android:layout_weight="1"
+          android:padding="20dp"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/editText4"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:ems="10"
+                android:textSize="22dp"
+                android:textColor="@android:color/black"
+                android:text="@string/instruction2" />
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+
             android:orientation="horizontal">
 
             <ImageButton
                 android:id="@+id/frBtn4"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_menu_manage" />
+                app:srcCompat="@drawable/bb1" />
 
             <ImageButton
                 android:id="@+id/frBtn5"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_menu_send" />
+                app:srcCompat="@drawable/b2" />
             <ImageButton
                 android:id="@+id/frBtn6"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_weight="1"
-                app:srcCompat="@drawable/ic_menu_send" />
+                app:srcCompat="@drawable/bb3" />
+        </LinearLayout>
         </LinearLayout>
     </LinearLayout>
 </RelativeLayout>

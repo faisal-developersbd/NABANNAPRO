@@ -89,6 +89,7 @@ public class MainActivity extends AppCompatActivity
              else  if(trackFragement==2)
              {
                  Log.e("tracfragement", "CurrentFragement:  " + "Second Fragment");
+
              }
              else  if(trackFragement==3)
              {
