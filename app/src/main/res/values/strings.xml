@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">NABANNA PRO</string>
+    <string name="app_name">নবান্ন</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -57,6 +57,16 @@
     <string name="fername">সারের নাম</string>
     <string name="ferquantity">সারের পরিমাণ</string>
 
+    <string name="instruction1">মাটির নমুনা সংগ্রহ করুন এবং নিকটস্হ কৃষি অফিসে পরীক্ষার জন্য দিন</string>
+    <string name="instruction2">কৃষি অফিসারের কাছ থেকে আপনার জমির বর্তমান ডাটা সংগ্রহ করুন</string>
+    <string name="instruction3">বর্তমান ডাটা অ্যাপলিকেশনে ইনপুট দিন এবং ফলাফল দেখুন</string>
+    <string name="instruction">নির্দেশনা</string>
+
+    <string name="commpunication">যোগাযোগ</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="input">ডাটা প্রদান</string>
+    <string name="aboutapp">অ্যাপ্লিকেশন সম্পর্কে</string>
 </resources>
