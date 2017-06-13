@@ -6,4 +6,4 @@ nabanno with builtin database
 
 <img src="https://github.com/faisal-developersbd/NABANNAPRO/blob/master/screenshot/picture2.jpg" width="270" style="margin-right:10px;float:left;">
 <br />
-<h1 style="text-align:center;">INPUT PHASE</h1>
+<h4 style="text-align:centre;">INPUT PHASE</h4>
